@@ -23,6 +23,31 @@ let runTimeOut;
 let runNextAuto = setTimeout(() => {
     next.click();
 }, timeAutoNext)
+
+// Auto Animation Toggle
+let isAutoAnimationEnabled = true;
+const autoToggleButton = document.getElementById('autoToggle');
+
+autoToggleButton.addEventListener('click', function() {
+    isAutoAnimationEnabled = !isAutoAnimationEnabled;
+    
+    if (isAutoAnimationEnabled) {
+        // Resume auto animation
+        runNextAuto = setTimeout(() => {
+            next.click();
+        }, timeAutoNext);
+        
+        // Update button appearance
+        autoToggleButton.classList.remove('paused');
+    } else {
+        // Stop auto animation
+        clearTimeout(runNextAuto);
+        
+        // Update button appearance
+        autoToggleButton.classList.add('paused');
+    }
+});
+
 function showSlider(type){
     let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
     let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
@@ -43,9 +68,13 @@ function showSlider(type){
     }, timeRunning);
 
     clearTimeout(runNextAuto);
-    runNextAuto = setTimeout(() => {
-        next.click();
-    }, timeAutoNext)
+    
+    // Only set timeout if auto animation is enabled
+    if (isAutoAnimationEnabled) {
+        runNextAuto = setTimeout(() => {
+            next.click();
+        }, timeAutoNext);
+    }
 }
 
 // See More Button Implementation

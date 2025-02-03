@@ -169,14 +169,49 @@ header a{
     border-radius: 50%;
     background-color: #eee4;
     border: none;
-    color: #fff;
+    color: purple;
     font-family: monospace;
     font-weight: bold;
     transition: .5s;
 }
 .arrows button:hover{
-    background-color: #fff;
+    background-color: purple;
     color: #000;
+}
+.arrows #autoToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid white;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.arrows #autoToggle:hover {
+    background-color: purple;
+}
+
+.arrows #autoToggle .pause-icon,
+.arrows #autoToggle .play-icon {
+    font-size: 16px;
+    
+}
+
+.arrows #autoToggle .play-icon {
+    display: none;
+    background-color: purple;
+}
+
+.arrows #autoToggle.paused .pause-icon {
+    display: none;
+    background-color: purple;
+}
+
+.arrows #autoToggle.paused .play-icon {
+    display: inline-block;
+    background-color: purple;
 }
 
 
