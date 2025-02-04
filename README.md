@@ -9,7 +9,7 @@ Visual Flow Image Slider is an interactive and responsive image slider web appli
 - Interactive navigation
 - Touch and swipe support
 - Customizable styling
-- animation ON/OFF button
+- Animation ON/OFF button
 
 ## Technologies Used
 - HTML5
